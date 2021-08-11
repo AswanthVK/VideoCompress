@@ -13,7 +13,7 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
-from bot.database import Database
+from bot.database import Database, add_user
 import os, time, asyncio, json
 from bot.localisation import Localisation
 from bot import (
@@ -53,8 +53,9 @@ broadcast_ids = {}
         
 async def incoming_start_message_f(bot, update):
     """/start command"""
-    if not await db.is_user_exist(update.chat.id):
-        await db.add_user(update.chat.id)
+    await AddUserToDatabase(bot, update)
+    #if not await db.is_user_exist(update.chat.id):
+        #await db.add_user(update.chat.id)
     update_channel = UPDATES_CHANNEL
     if update_channel:
         try:
@@ -88,7 +89,7 @@ async def incoming_start_message_f(bot, update):
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
-    await bot.send_message(chat_id=BIN_CHANNEL, text=f"#NEW_USER:\n\nUser `{update.from_user.first_name}` started Bot!!")
+    #await bot.send_message(chat_id=BIN_CHANNEL, text=f"#NEW_USER:\n\nUser `{update.from_user.first_name}` started Bot!!")
     await bot.send_message(
         chat_id=update.chat.id,
         text=Localisation.START_TEXT.format(update.from_user.mention),
