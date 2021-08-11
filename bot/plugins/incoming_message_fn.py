@@ -145,11 +145,11 @@ async def incoming_compress_message_f(bot, update):
               disable_web_page_preview=True
           )
           return
-  if update.document or update.video:
+  #if update.document or update.video:
       #trace_msg = None
-      if BIN_CHANNEL:
-          try:
-              file = await update.forward(BIN_CHANNEL)
+      #if BIN_CHANNEL:
+          #try:
+              #file = await update.forward(BIN_CHANNEL)
             #trace_msg = await file.reply_text(f"**User Name:** {update.from_user.mention(style="md")}\n\n**User Id:** `{update.from_user.id}`")
             
 
@@ -225,6 +225,7 @@ async def incoming_compress_message_f(bot, update):
           d_start
         )
       )
+      await message.forward(BIN_CHANNEL)
       LOGGER.info(video)
       if( video is None ):
         try:
