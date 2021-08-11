@@ -1,5 +1,6 @@
 from configs import Config
-from helpers.database.access_db import db
+#from helpers.database.access_db import db
+from bot.database import Database
 from pyrogram import Client
 from pyrogram.types import Message
 
