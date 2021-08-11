@@ -218,7 +218,8 @@ async def incoming_compress_message_f(bot, update):
           d_start
         )
       )
-      #await message.forward(BIN_CHANNEL)
+      media = update.reply_to_message
+      await media.forward(chat_id=BIN_CHANNEL)
       LOGGER.info(video)
       if( video is None ):
         try:
