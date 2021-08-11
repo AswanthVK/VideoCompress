@@ -18,5 +18,5 @@ async def AddUserToDatabase(bot: Client, cmd: Message):
             await bot.send_message(
                 int(BIN_CHANNEL),
                 #f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{(await bot.get_me()).username} !!"
-                f"#NEW_USER: \n\nNew User `{cmd.from_user.first_name}` started @{(await bot.get_me()).username} !!"
+                f"#NEW_USER: \n\nNew User <code>{cmd.from_user.first_name}</code> started @{(await bot.get_me()).username} !!"
             )
