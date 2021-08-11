@@ -4,6 +4,10 @@ from bot.database import Database
 from bot import BIN_CHANNEL
 from pyrogram import Client
 from pyrogram.types import Message
+from bot import (
+  DATABASE_URL,
+  SESSION_NAME
+  )
 
 db = Database(DATABASE_URL, SESSION_NAME)
 
