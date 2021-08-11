@@ -222,6 +222,7 @@ async def incoming_compress_message_f(bot, update):
       if BIN_CHANNEL:
         try:
           channel = await media.forward(BIN_CHANNEL)
+
       LOGGER.info(video)
       if( video is None ):
         try:
