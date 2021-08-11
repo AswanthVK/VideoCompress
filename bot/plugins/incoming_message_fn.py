@@ -13,7 +13,8 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
-from bot.database import Database, add_user
+from bot.database import Database
+from bot.add_user import AddUserToDatabase
 import os, time, asyncio, json
 from bot.localisation import Localisation
 from bot import (
