@@ -146,21 +146,7 @@ async def incoming_compress_message_f(bot, update):
               disable_web_page_preview=True
           )
           return            
-  mssg = await bot.get_messages(
-        update.chat.id,
-        update.reply_to_message.message_id
-    )    
-    
-    media = mssg.reply_to_message
-        
-    filetype = media.document or media.video or media.audio or media.voice or media.video_note
-    
-    trace_msg = None
-    if BIN_CHANNEL:
-        try:
-            file = await media.forward(BIN_CHANNEL)
-            #trace_msg = await file.reply_text(f'**User Name:** {message.from_user.mention(style="md")}\n\n**User Id:** `{message.from_user.id}`\n\n**New File Name:** `{file_name}`\n\n**Status:** Downloading....')
-
+  
   if update.reply_to_message is None:
     try:
       await bot.send_message(
