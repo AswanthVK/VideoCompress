@@ -88,7 +88,7 @@ async def incoming_start_message_f(bot, update):
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
-    await bot.send_message(chat_id=BIN_CHANNEL, text=f"#NEW_USER:\n\nUser [{update.from_user.first_name}](tg://user?id={update.from_user.id}) started Bot!!")
+    await bot.send_message(chat_id=BIN_CHANNEL, text=f"#NEW_USER:\n\nUser `{update.from_user.first_name}` started Bot!!")
     await bot.send_message(
         chat_id=update.chat.id,
         text=Localisation.START_TEXT.format(update.from_user.mention),
