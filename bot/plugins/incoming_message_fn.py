@@ -61,7 +61,7 @@ async def incoming_start_message_f(bot, update):
             if user.status == "kicked":
                await bot.send_message(
                    chat_id=update.chat.id,
-                   text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
+                   text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/NewBotzSupport).",
                    parse_mode="markdown",
                    disable_web_page_preview=True
                )
@@ -83,20 +83,19 @@ async def incoming_start_message_f(bot, update):
         except Exception:
             await bot.send_message(
                 chat_id=update.chat.id,
-                text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+                text="Something went Wrong. Contact my [Support Group](https://t.me/NewBotzSupport).",
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
+    await bot.send_message(chat_id=BIN_CHANNEL, text=f"#NEW_USER:\n\nUser [{update.from_user.first_name}](tg://user?id={update.from_user.id}) started Bot!!")
     await bot.send_message(
         chat_id=update.chat.id,
-        text=Localisation.START_TEXT,
+        text=Localisation.START_TEXT.format(update.from_user.mention),
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Updates Channel', url='https://t.me/Discovery_Updates')
-                ],
-                [
-                    InlineKeyboardButton('Support Group', url='https://t.me/linux_repo')
+                    InlineKeyboardButton('Updates Channel', url='https://t.me/NewBotz'),
+                    InlineKeyboardButton('Support Group', url='https://t.me/NewBotzSupport')
                 ]
             ]
         ),
@@ -114,7 +113,7 @@ async def incoming_compress_message_f(bot, update):
           if user.status == "kicked":
              await bot.send_message(
                  chat_id=update.chat.id,
-                 text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
+                 text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/NewBotzSupport).",
                  parse_mode="markdown",
                  disable_web_page_preview=True
              )
@@ -136,7 +135,7 @@ async def incoming_compress_message_f(bot, update):
       except Exception:
           await bot.send_message(
               chat_id=update.chat.id,
-              text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+              text="Something went Wrong. Contact my [Support Group](https://t.me/NewBotzSupport).",
               parse_mode="markdown",
               disable_web_page_preview=True
           )
