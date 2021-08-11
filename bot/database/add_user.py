@@ -5,6 +5,7 @@ from bot import BIN_CHANNEL
 from pyrogram import Client
 from pyrogram.types import Message
 
+db = Database(DATABASE_URL, SESSION_NAME)
 
 async def AddUserToDatabase(bot: Client, cmd: Message):
     if not await db.is_user_exist(cmd.from_user.id):
