@@ -14,6 +14,7 @@ class Config(object):
     API_HASH = get_config("API_HASH", "")
     LOG_CHANNEL = get_config("LOG_CHANNEL")
     BIN_CHANNEL = get_config("BIN_CHANNEL")
+    DUMP_CHANNEL = get_config("DUMP_CHANNEL")
     UPDATES_CHANNEL = get_config("UPDATES_CHANNEL", "") # Without `@` LOL
      # Get these values from my.telegram.org
     # array to store the channel ID who are authorized to use the bot
