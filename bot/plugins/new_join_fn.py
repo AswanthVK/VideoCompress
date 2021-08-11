@@ -77,9 +77,9 @@ async def help_message_f(client, message):
                 #[
                     #InlineKeyboardButton('Updates Channel', url='https://t.me/Discovery_Updates')
                 #],
-                #[
-                    #InlineKeyboardButton('Support Group', url='https://t.me/linux_repo')
-                #],
+                [
+                    InlineKeyboardButton('🤖 Status Channel 🤖', url='https://t.me/NewCompressor')
+                ],
                 [
                     InlineKeyboardButton('Updates Channel', url='https://t.me/NewBotz'), # Bloody Thief, Don't Become a Developer by Stealing other's Codes & Hard Works!
                     InlineKeyboardButton('Support Group', url='https://t.me/NewBotzSupport') # Must Give us Credits!
