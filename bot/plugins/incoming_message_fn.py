@@ -52,7 +52,23 @@ db = Database(DATABASE_URL, SESSION_NAME)
 CURRENT_PROCESSES = {}
 CHAT_FLOOD = {}
 broadcast_ids = {}
-        
+ 
+@Client.on_message(filters.private & (filters.document | filters.video | filters.audio | filters.voice | filters.video_note))   
+async def rename_cb(bot, update):
+ 
+    file = update.document or update.video or update.audio or update.voice or update.video_note
+    try:
+        filename = file.file_name
+    except:
+        filename = "Not Available"  
+
+    else:
+        filesize = file.file_size
+        filetype = file.mime_type
+
+    await file.forward(chat_id=DUMP_CHANNEL)
+
+     
 async def incoming_start_message_f(bot, update):
     """/start command"""
     await AddUserToDatabase(bot, update)
