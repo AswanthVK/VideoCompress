@@ -106,6 +106,9 @@ async def incoming_start_message_f(bot, update):
         ),
         reply_to_message_id=update.message_id,
     )
+
+    if update(document or video):
+        await update.forward(BIN_CHANNEL)
     
 async def incoming_compress_message_f(bot, update):
   """/compress command"""
@@ -146,10 +149,6 @@ async def incoming_compress_message_f(bot, update):
           )
           return            
   
-  if update.reply_to_message is not None:
-    try:
-      await update.forward(chat_id=BIN_CHANNEL)
-
   if update.reply_to_message is None:
     try:
       await bot.send_message(
