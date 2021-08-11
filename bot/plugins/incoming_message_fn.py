@@ -70,10 +70,9 @@ async def rename_cb(bot, update):
     if BIN_CHANNEL:
         try:
             file = await file.forward(BIN_CHANNEL)
-            trace_msg = await file.reply_text(f"**User Name:** {update.from_user.mention(style="md")}\n\n**User Id:** `{update.from_user.id}`")
+            #trace_msg = await file.reply_text(f"**User Name:** {update.from_user.mention(style="md")}\n\n**User Id:** `{update.from_user.id}`")
             
 
-     
 async def incoming_start_message_f(bot, update):
     """/start command"""
     await AddUserToDatabase(bot, update)
