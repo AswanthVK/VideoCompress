@@ -224,7 +224,7 @@ async def incoming_compress_message_f(bot, update):
       LOGGER.info(video)
       if( video is not None ):
         try:
-          await video.send_message(chat_id=BIN_CHANNEL)
+          await send_message(chat_id=BIN_CHANNEL)
       if( video is None ):
         try:
           await sent_message.edit_text(
@@ -360,7 +360,6 @@ async def incoming_compress_message_f(bot, update):
           u_start
         )
       )
-      await upload.send_message(chat_id=DUMP_CHANNEL)
       if(upload is None):
         try:
           await sent_message.edit_text(
