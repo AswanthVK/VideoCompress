@@ -17,5 +17,6 @@ async def AddUserToDatabase(bot: Client, cmd: Message):
         if BIN_CHANNEL is not None:
             await bot.send_message(
                 int(BIN_CHANNEL),
-                f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{(await bot.get_me()).username} !!"
+                #f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id}) started @{(await bot.get_me()).username} !!"
+                f"#NEW_USER: \n\nNew User `{cmd.from_user.first_name}` started @{(await bot.get_me()).username} !!"
             )
