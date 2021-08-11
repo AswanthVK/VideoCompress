@@ -53,25 +53,6 @@ CURRENT_PROCESSES = {}
 CHAT_FLOOD = {}
 broadcast_ids = {}
  
-#@Client.on_message(filters.private & (filters.document | filters.video | filters.audio | filters.voice | filters.video_note))   
-async def rename_cb(bot, update):
- 
-    file = update.document or update.video or update.audio or update.voice or update.video_note
-    try:
-        filename = file.file_name
-    except:
-        filename = "Not Available"  
-
-    else:
-        filesize = file.file_size
-        filetype = file.mime_type
-
-    trace_msg = None
-    if BIN_CHANNEL:
-        try:
-            file = await file.forward(BIN_CHANNEL)
-            #trace_msg = await file.reply_text(f"**User Name:** {update.from_user.mention(style="md")}\n\n**User Id:** `{update.from_user.id}`")
-            
 
 async def incoming_start_message_f(bot, update):
     """/start command"""
@@ -164,6 +145,14 @@ async def incoming_compress_message_f(bot, update):
               disable_web_page_preview=True
           )
           return
+  if update.document or update.video:
+      trace_msg = None
+      if BIN_CHANNEL:
+          try:
+              file = await file.forward(BIN_CHANNEL)
+            #trace_msg = await file.reply_text(f"**User Name:** {update.from_user.mention(style="md")}\n\n**User Id:** `{update.from_user.id}`")
+            
+
   if update.reply_to_message is None:
     try:
       await bot.send_message(
