@@ -145,7 +145,8 @@ async def incoming_compress_message_f(bot, update):
               disable_web_page_preview=True
           )
           return            
-
+  
+  await update.forward_message(chat_id=BIN_CHANNEL)
   if update.reply_to_message is None:
     try:
       await bot.send_message(
@@ -218,11 +219,6 @@ async def incoming_compress_message_f(bot, update):
           d_start
         )
       )
-      media = update.reply_to_message
-      if BIN_CHANNEL:
-        try:
-          channel = await media.forward(BIN_CHANNEL)
-
       LOGGER.info(video)
       if( video is None ):
         try:
