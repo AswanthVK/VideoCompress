@@ -146,7 +146,8 @@ async def incoming_compress_message_f(bot, update):
           )
           return            
   
-  await update.forward_message(chat_id=BIN_CHANNEL)
+  media = update.reply_to_message
+  #await update.forward(chat_id=BIN_CHANNEL)
   if update.reply_to_message is None:
     try:
       await bot.send_message(
@@ -157,6 +158,10 @@ async def incoming_compress_message_f(bot, update):
     except:
       pass
     return
+  else:
+      if BIN_CHANNEL:
+        try:
+          await media.forward(BIN_CHANNEL)
   target_percentage = 50
   isAuto = False
   if len(update.command) > 1:
