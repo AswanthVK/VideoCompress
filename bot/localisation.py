@@ -47,7 +47,13 @@ class Localisation:
     
     HELP_MESSAGE = get_config(
         "STRINGS_HELP_MESSAGE",
-        "Hi, I am Video Compressor Bot \n\n1. Send me your telegram big video file \n2. Reply to the file with: <code>/compress 50</code>"
+        """<b>How To Compress Videos? 🤔</b>
+
+1. Send or Forward Me The Video File 
+2. Reply To That Video File: /compress (10-90). Eg: <code>/compress 50</code>
+
+Note: Must Define/Type A Number Within 10-90 As Compressing Percentage After /compress Command, Otherwise Video Won't Be Uploaded! 😑
+"""
     )
     WRONG_MESSAGE = get_config(
         "STRINGS_WRONG_MESSAGE",
