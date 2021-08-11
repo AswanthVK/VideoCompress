@@ -20,6 +20,7 @@ from bot import (
   DOWNLOAD_LOCATION, 
   AUTH_USERS,
   LOG_CHANNEL,
+  BIN_CHANNEL,
   UPDATES_CHANNEL,
   DATABASE_URL,
   SESSION_NAME
@@ -44,7 +45,6 @@ from bot.helper_funcs.utils import(
   delete_downloads
 )
 
-BIN_CHANNEL = "-1001522247178"
 LOGS_CHANNEL = -1001283278354
 db = Database(DATABASE_URL, SESSION_NAME)
 CURRENT_PROCESSES = {}
