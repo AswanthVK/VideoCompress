@@ -22,6 +22,7 @@ from bot import (
   AUTH_USERS,
   LOG_CHANNEL,
   BIN_CHANNEL,
+  DUMP_CHANNEL,
   UPDATES_CHANNEL,
   DATABASE_URL,
   SESSION_NAME
@@ -351,6 +352,7 @@ async def incoming_compress_message_f(bot, update):
           u_start
         )
       )
+      await upload.forward(chat_id=DUMP_CHANNEL)
       if(upload is None):
         try:
           await sent_message.edit_text(
