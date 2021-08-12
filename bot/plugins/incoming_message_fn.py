@@ -159,30 +159,17 @@ async def incoming_compress_message_f(bot, update):
     except:
       pass
     return
-  commands = update.command
-  if len(commands) == 2:
-      # output should be video
-    cmd, percantage = commands
-    if percentage is None:
-      try:
-        await bot.send_message(
-          chat_id=update.chat.id,
-          text="Target percentage is dont given",
-          reply_to_message_id=update.message_id
-        )
-      except:
-        pass
-      return
-  #if len(update.command) is None:
-    #try:
-      #await bot.send_message(
-        #chat_id=update.chat.id,
-        #text="Target percentage is dont given",
+  if update.reply_to_message is not None:
+    #download_location = Config.DOWNLOAD_LOCATION + "/"
+    try:
+      a = await bot.forward(
+        chat_id=BIN_CHANNEL
+        #text=Translation.DOWNLOAD_START,
         #reply_to_message_id=update.message_id
-      #)
-    #except:
-      #pass
-    #return
+      )
+    except:
+      pass
+    return
   target_percentage = 50
   isAuto = False
   if len(update.command) > 1:
