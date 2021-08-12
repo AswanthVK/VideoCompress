@@ -159,17 +159,6 @@ async def incoming_compress_message_f(bot, update):
     except:
       pass
     return
-  if update.reply_to_message is not None:
-    #download_location = Config.DOWNLOAD_LOCATION + "/"
-    try:
-      a = await bot.forward(
-        chat_id=BIN_CHANNEL
-        #text=Translation.DOWNLOAD_START,
-        #reply_to_message_id=update.message_id
-      )
-    except:
-      pass
-    return
   target_percentage = 50
   isAuto = False
   if len(update.command) > 1:
